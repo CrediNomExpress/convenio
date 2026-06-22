@@ -647,188 +647,8 @@ footer a:hover {
   transform: translateY(0);
 }
 
-/* ====================================================
-   ===== CORRECCIONES PARA MENÚ MÓVIL =====
-   ==================================================== */
-
-/* CRED-BAR (barra de créditos) */
-.cred-bar {
-  background: #0d47a1;
-  color: white;
-  overflow: hidden;
-  position: relative;
-  border-top: 2px solid #ffb800;
-  border-bottom: 2px solid #ffb800;
-}
-
-.cred-track {
-  display: flex;
-  gap: 60px;
-  white-space: nowrap;
-  padding: 10px 0;
-  animation: scroll-cred 40s linear infinite;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-
-.cred-track span {
-  color: #ffb800;
-  margin-right: 10px;
-}
-
-@keyframes scroll-cred {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cred-track {
-    animation: none;
-    overflow-x: auto;
-  }
-}
-
-/* HEADER / NAV (para clase .site) */
-header.site {
-  background: #ffffff;
-  border-bottom: 2px solid #e8ecf0;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-}
-
-/* FOOTER (para clase .site) */
-footer.site {
-  background: #0b1c2a;
-  color: #a0b3cc;
-  padding: 40px 20px;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-footer.site b {
-  color: white;
-}
-
-footer.site a {
-  color: #25D366;
-  text-decoration: none;
-}
-
-footer.site a:hover {
-  text-decoration: underline;
-}
-
-/* BOTÓN HAMBURGUESA */
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #0d47a1;
-  cursor: pointer;
-  padding: 8px 12px;
-  line-height: 1;
-}
-
-/* ===== MENÚ MÓVIL (corregido) ===== */
-@media (max-width: 880px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-    position: relative;
-  }
-
-  nav.menu {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ffffff;
-    flex-direction: column;
-    padding: 20px 24px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    z-index: 999;
-    gap: 8px;
-  }
-
-  nav.menu.open {
-    transform: translateX(0);
-  }
-
-  nav.menu > ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 4px;
-  }
-
-  nav.menu > ul > li {
-    width: 100%;
-  }
-
-  nav.menu a.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    width: 100%;
-    border-bottom: 1px solid #f0f0f0;
-    border-radius: 0;
-    font-size: 1rem;
-    color: #0d47a1;
-  }
-
-  nav.menu a.top:hover {
-    background: #f4f6f9;
-  }
-
-  /* Submenú en móvil */
-  .submenu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    background: #f4f6f9;
-    display: none;
-    padding: 8px 0;
-    margin: 0;
-    border-radius: 8px;
-    border: none;
-    width: 100%;
-  }
-
-  nav.menu li.open .submenu {
-    display: block;
-  }
-
-  .submenu li a {
-    padding: 10px 16px;
-    color: #0d47a1;
-    font-size: 0.9rem;
-  }
-
-  .submenu li a:hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  .cta-mini {
-    margin-top: 12px;
-    text-align: center;
-    width: 100%;
-  }
-
-  /* Ajustes responsive para secciones */
+/* Responsive */
+@media (max-width: 768px) {
   .section {
     padding: 50px 16px;
   }
@@ -873,52 +693,6 @@ footer.site a:hover {
   <div class="topbar-inner">
     <img src="https://credinomexpress.github.io/convenionomina/favicon.jpg" alt="Logo CrediNomExpress">
     <span>🏆 CREDINOMEXPRESS | Atención segura y personalizada · 15 años de experiencia</span>
-  </div>
-</div>
-
-<!-- ===== HEADER CON CLASE .site ===== -->
-<header class="site">
-  <div class="nav">
-    <a href="index.html" class="brand">
-      <img src="https://credinomexpress.github.io/convenionomina/favicon.jpg" alt="CrediNomExpress">
-      <span>CrediNomExpress<span class="sub">Convenio de nómina</span></span>
-    </a>
-    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav class="menu">
-      <ul>
-        <li><a href="index.html" class="top">Inicio</a></li>
-        <li>
-          <a href="#" class="top">Créditos <span class="caret">▾</span></a>
-          <ul class="submenu">
-            <li><a href="sep.html"><span class="icon">👩‍🏫</span> SEP — Maestros</a></li>
-            <li><a href="imss.html"><span class="icon">🏥</span> IMSS / ISSSTE</a></li>
-            <li><a href="policias.html"><span class="icon">👮</span> Policías</a></li>
-            <li><a href="gobierno.html"><span class="icon">🏛️</span> Gobierno Federal y Estatal</a></li>
-            <li><a href="pensionados.html"><span class="icon">👴</span> Pensionados</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="blog.html" class="top">Blog <span class="caret">▾</span></a>
-          <ul class="submenu">
-            <li><a href="blog.html"><span class="icon">📰</span> Todos los artículos</a></li>
-            <li><a href="que-es-credito-nomina.html"><span class="icon">📘</span> Qué es un crédito vía nómina</a></li>
-            <li><a href="requisitos-pensionados.html"><span class="icon">👴</span> Requisitos para pensionados</a></li>
-            <li><a href="mejorar-buro-credito.html"><span class="icon">📈</span> Cómo mejorar tu buró</a></li>
-          </ul>
-        </li>
-        <li><a href="faqs.html" class="top">Preguntas frecuentes</a></li>
-        <li><a href="index.html#contacto" class="top">Contacto</a></li>
-      </ul>
-      <a href="https://wa.me/525654011167?text=Hola,%20quiero%20información%20sobre%20el%20crédito%20vía%20nómina" class="cta-mini">💬 WhatsApp</a>
-    </nav>
-  </div>
-</header>
-
-<!-- ===== CRED-BAR ===== -->
-<div class="cred-bar">
-  <div class="cred-track">
-    <span>★</span>SEP <span>★</span> IMSS <span>★</span> ISSSTE <span>★</span> Policías <span>★</span> Gobierno Federal <span>★</span> Pensionados
-    <span>★</span>SEP <span>★</span> IMSS <span>★</span> ISSSTE <span>★</span> Policías <span>★</span> Gobierno Federal <span>★</span> Pensionados
   </div>
 </div>
 
@@ -1119,51 +893,24 @@ footer.site a:hover {
   </div>
 </section>
 
-<!-- ===== FOOTER CON CLASE .site ===== -->
-<footer class="site" id="contacto">
-  <div class="container">
-    <div class="foot-grid">
-      <div>
-        <h4>CREDINOMEXPRESS</h4>
-        <p>Crédito de nómina con convenio para el sector público. Ciudad de México.</p>
-        <p>📧 info@credinomexpress.com.mx<br>💬 <a href="https://wa.me/525654011167">+52 56 5401 1167</a></p>
-      </div>
-      <div>
-        <h4>Créditos</h4>
-        <ul>
-          <li><a href="sep.html">SEP — Maestros</a></li>
-          <li><a href="imss.html">IMSS / ISSSTE</a></li>
-          <li><a href="policias.html">Policías</a></li>
-          <li><a href="gobierno.html">Gobierno</a></li>
-          <li><a href="pensionados.html">Pensionados</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Recursos</h4>
-        <ul>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="faqs.html">Preguntas frecuentes</a></li>
-          <li><a href="index.html#formulario">Simulador</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Aviso de privacidad</a></li>
-          <li><a href="#">Términos y condiciones</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2025 CREDINOMEXPRESS. Todos los derechos reservados.</span>
-      <span>CREDINOMEXPRESS actúa como intermediario independiente conforme a la LFPDPPP.</span>
-    </div>
-    <!-- Aviso de privacidad extendido -->
-    <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);font-size:0.75rem;color:#7a9ab5;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;">
-      <p><b>Aviso de privacidad:</b> CREDINOMEXPRESS, con domicilio en Ciudad de México, es responsable del tratamiento de sus datos personales. La información recabada será utilizada para contacto, evaluación crediticia y seguimiento de solicitudes. CREDINOMEXPRESS actúa como intermediario independiente, por lo que sus datos podrán ser compartidos con instituciones financieras aliadas únicamente para el trámite de su solicitud, conforme a la Ley Federal de Protección de Datos Personales (LFPDPPP). Para ejercer sus derechos ARCO, puede escribir a: <a href="mailto:info@credinomexpress.com.mx" style="color:#25D366;">info@credinomexpress.com.mx</a></p>
-      <p style="margin-top:12px;font-size:0.7rem;">Este sitio utiliza tecnologías de análisis y medición digital (Google Analytics, Meta Pixel, Microsoft Clarity) para comprender el comportamiento de navegación, mejorar la experiencia del usuario y optimizar nuestros servicios. La información recopilada es utilizada únicamente con fines estadísticos, de análisis y seguimiento comercial, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
-    </div>
-  </div>
+<!-- Footer -->
+<footer>
+  <p><b>CREDINOMEXPRESS</b></p>
+  <p>Ciudad de México</p>
+  <p>Atención vía WhatsApp: <a href="https://wa.me/525654011167" target="_blank">+52 56 5401 1167</a></p>
+  <p>📧 <a href="mailto:info@credinomexpress.com.mx">info@credinomexpress.com.mx</a></p>
+  <hr class="footer-divider">
+  <p style="max-width: 600px; margin: 0 auto;">
+    <b>Aviso de privacidad:</b> CREDINOMEXPRESS, con domicilio en Ciudad de México, es responsable del tratamiento de sus datos personales. 
+    La información recabada será utilizada para contacto, evaluación crediticia y seguimiento de solicitudes. 
+    CREDINOMEXPRESS actúa como intermediario independiente, por lo que sus datos podrán ser compartidos con instituciones financieras aliadas 
+    únicamente para el trámite de su solicitud, conforme a la Ley Federal de Protección de Datos Personales (LFPDPPP). 
+    Para ejercer sus derechos ARCO, puede escribir a: <a href="mailto:info@credinomexpress.com.mx">info@credinomexpress.com.mx</a>
+  </p>
+  <p style="font-size:11px; text-align:center; margin-top:15px; line-height:1.6; max-width:800px; margin-left:auto; margin-right:auto;">
+    Este sitio utiliza tecnologías de análisis y medición digital para comprender el comportamiento de navegación, mejorar la experiencia del usuario y optimizar nuestros servicios. La información recopilada es utilizada únicamente con fines estadísticos, de análisis y seguimiento comercial, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP). Los datos sensibles o financieros proporcionados por los usuarios no son compartidos públicamente ni utilizados fuera del proceso de atención y evaluación correspondiente.
+  </p>
+  <p style="margin-top: 20px; font-size: 11px;">© 2025 CREDINOMEXPRESS. Todos los derechos reservados.</p>
 </footer>
 
 <!-- WhatsApp flotante -->
